@@ -1,0 +1,38 @@
+
+
+.button {
+  -fx-background-color: #CFCFCF;
+}
+
+.button:hover {
+  -fx-background-color: #40A853;
+  -fx-text-fill: white;
+}
+
+.text:hover {
+  -fx-text-fill: #ff8d36;
+}
+
+.button2 {
+  -fx-background-color: #40a853;
+}
+
+.button2:hover {
+  -fx-background-color: #ff8d36;
+}
+.scroll .scroll-bar:vertical{
+  -fx-background-color: white;
+}
+.scroll .scroll-bar:vertical .track{
+
+  -fx-background-color: white;
+
+}
+
+.scroll .scroll-bar:vertical .thumb{
+
+  -fx-background-color:  #e8e8e8;
+  -fx-background-radius: 0px;
+  -fx-background-insets: 0, 0, 0;
+
+}
