@@ -50,7 +50,7 @@ public class AddRecipeController implements Initializable {
   @FXML
   private Label filePath;
 
-  final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
+  static final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
   String imageUrl;
   // Data from recipes database is retrieved
   public void addRecipe(ActionEvent event) throws Exception {
@@ -58,8 +58,9 @@ public class AddRecipeController implements Initializable {
     // Selects total number of rows from recipes table in database
     final String GET_ROWS = "SELECT COUNT(*) FROM recipes";
     try(Connection conn = DriverManager.getConnection(DATABASE_URL);
-    Statement stmt = conn.createStatement()) {
-      ResultSet resultSet = stmt.executeQuery(GET_ROWS);
+    Statement stmt = conn.createStatement();
+    ResultSet resultSet = stmt.executeQuery(GET_ROWS)) {
+
       // Retrieves number of rows in table so recipe id is set
       resultSet.next();
       recipe_id = resultSet.getInt(1) + 1;
@@ -140,16 +141,17 @@ public class AddRecipeController implements Initializable {
     return null;
   }
 
-  public void ImageChooser(ActionEvent event) throws Exception {
+  public void imageChooser(ActionEvent event) throws Exception {
     // FileChooser object is created and extention filters are added
     FileChooser fileChooser = new FileChooser();
     fileChooser.getExtensionFilters().add(new ExtensionFilter("Image files", filesList));
     // File object is created, which allows user to choose image
     File file = fileChooser.showOpenDialog(null);
     // Path of chosen file is set to imageUrl string
-    this.imageUrl = file.getAbsolutePath();
+
     if(file != null){
-        filePath.setText("Selected image:" + imageUrl);
+      filePath.setText("Selected image:" + file.getAbsolutePath());
+      this.imageUrl = file.getAbsolutePath();
     }
     else
       filePath.setText("Please choose an image.");

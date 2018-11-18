@@ -67,7 +67,7 @@ public class DatabaseController implements Initializable {
   private Label directions;
 
 
-  final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
+  static final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -85,8 +85,9 @@ public class DatabaseController implements Initializable {
         + "categories ON categories.recipe_id=recipes.recipe_id";
 
     try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-        Statement statement = connection.createStatement()) {
-        ResultSet resultSet = statement.executeQuery(JOIN_RECIPES);
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(JOIN_RECIPES)) {
+
         // Values from Resultset object are added into list
         while(resultSet.next()) {
           int recId = resultSet.getInt("recipe_id");
@@ -120,7 +121,7 @@ public class DatabaseController implements Initializable {
     IngCol.setCellValueFactory(new PropertyValueFactory<>("mainIngredient"));
   }
 
-  public class Recipe {
+  public static class Recipe {
     // column properties are initialized
     private final SimpleIntegerProperty recId;
     private final SimpleStringProperty dish;
@@ -183,8 +184,9 @@ public class DatabaseController implements Initializable {
         + " where recipes.recipe_id="+recipe.getRecId();
 
     try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-        Statement statement = connection.createStatement()) {
-      ResultSet resultSet = statement.executeQuery(JOIN_RECIPES1);
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(JOIN_RECIPES1)) {
+
       // Values from Resultset object are added set to vakues
       while (resultSet.next()) {
         ing = resultSet.getString("ingredients");

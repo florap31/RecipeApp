@@ -119,7 +119,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Button fx:id="btnImageChooser" layoutX="510.0" layoutY="197.0" mnemonicParsing="false" onAction="#ImageChooser" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #40a853; -fx-background-radius: 0px;" text="Choose an Image" textFill="WHITE">
+      <Button fx:id="btnImageChooser" layoutX="510.0" layoutY="197.0" mnemonicParsing="false" onAction="#imageChooser" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #40a853; -fx-background-radius: 0px;" text="Choose an Image" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
@@ -127,9 +127,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="filePath" layoutX="492.0" layoutY="235.0" text=" ">
+      <Label fx:id="filePath" layoutX="510.0" layoutY="239.0" text=" ">
          <font>
-            <Font size="5.0" />
+            <Font size="10.0" />
          </font>
       </Label>
   </children>
