@@ -14,3 +14,4 @@ I also tried to make the overall look simple and concise.
 I tried to make all of the user functionalities clear and to the point, so the the overall user experience is positive.
 
 # Database diagram:
+![alt text](databasediagram.png)
