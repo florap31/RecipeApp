@@ -37,7 +37,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="-4.0" layoutY="170.0" mnemonicParsing="false" onAction="#AddRem" prefHeight="45.0" prefWidth="228.0" style="-fx-background-radius: 0px;" stylesheets="@Style.css" text="Add/Remove recipe" textFill="#464646">
+            <Button layoutX="-4.0" layoutY="170.0" mnemonicParsing="false" onAction="#addRem" prefHeight="45.0" prefWidth="228.0" style="-fx-background-radius: 0px;" stylesheets="@Style.css" text="Add/Remove recipe" textFill="#464646">
                <font>
                   <Font name="Avenir Roman" size="21.0" />
                </font>
