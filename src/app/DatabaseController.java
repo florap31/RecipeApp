@@ -196,7 +196,7 @@ public class DatabaseController implements Initializable {
       // Labels and images are set
       ingredients.setText(ing);
       directions.setText(dir);
-      Image image1 = new Image(new File(image).toURI().toString());
+      Image image1 = new Image("file:"+image);
       photo.setImage(image1);
 
     } 
@@ -204,7 +204,6 @@ public class DatabaseController implements Initializable {
       Status.setText("Error");
       e.printStackTrace();
     }
-
 
   }
 

@@ -52,7 +52,7 @@ INSERT INTO Ingredients (ingredient_id, recipe_id, directions, ingredients)
     Add salt, pepper, and optional Cajun seasoning. Serve hot or cold!', 
 
    '4 Tablespoons butter (1/2 stick)
-	2 cups trinity (equal parts chopped onion,
+    2 cups trinity (equal parts chopped onion,
     green bell pepper, and celery)
 	1/4 jalapeno, finely chopped
 	2-4 garlic cloves, minced
