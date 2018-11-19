@@ -52,11 +52,13 @@ public class AddRecipeController implements Initializable {
 
   static final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
   String imageUrl;
+
   // Data from recipes database is retrieved
   public void addRecipe(ActionEvent event) throws Exception {
     int recipe_id = 0;
     // Selects total number of rows from recipes table in database
     final String GET_ROWS = "SELECT COUNT(*) FROM recipes";
+
     try(Connection conn = DriverManager.getConnection(DATABASE_URL);
     Statement stmt = conn.createStatement();
     ResultSet resultSet = stmt.executeQuery(GET_ROWS)) {

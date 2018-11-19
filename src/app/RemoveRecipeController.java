@@ -59,7 +59,7 @@ public class RemoveRecipeController {
 
   public void addRecipe(ActionEvent event) throws Exception {
 
-    Parent addRecipe = FXMLLoader.load(getClass().getResource("RemoveRecipe.fxml"));
+    Parent addRecipe = FXMLLoader.load(getClass().getResource("AddRecipe.fxml"));
     Scene AddRecipe = new Scene(addRecipe);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
