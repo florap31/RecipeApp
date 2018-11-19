@@ -208,7 +208,16 @@ public class DatabaseController implements Initializable {
 
   }
 
+  public void remRecipe(ActionEvent event) throws Exception {
 
+    Parent remRecipe = FXMLLoader.load(getClass().getResource("RemoveRecipe.fxml"));
+    Scene RemRecipe = new Scene(remRecipe);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(RemRecipe);
+    window.show();
+
+  }
 
   public void dash(ActionEvent event) throws Exception {
 

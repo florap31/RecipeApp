@@ -36,7 +36,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
         </Button>
-        <Button layoutX="-4.0" layoutY="168.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="228.0" style="-fx-background-color: #40A853; -fx-background-radius: 0px;" stylesheets="@Style.css" text="Add/Remove recipe" textFill="WHITE">
+        <Button layoutX="-4.0" layoutY="168.0" mnemonicParsing="false" onAction="#addRecipe" prefHeight="45.0" prefWidth="228.0" style="-fx-background-radius: 0px;" stylesheets="@Style.css" text="Add recipe" textFill="#434343">
           <font>
             <Font name="Avenir Roman" size="21.0" />
           </font>
@@ -44,6 +44,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
         </Button>
+            <Button layoutY="213.0" mnemonicParsing="false" onAction="#database" prefHeight="45.0" prefWidth="224.0" style="-fx-background-radius: 0px; -fx-background-color: #40A853;" stylesheets="@Style.css" text="Remove Recipe" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Next Regular" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
       </children></AnchorPane>
     <TextField fx:id="recipeID" layoutX="375.0" layoutY="255.0" prefHeight="17.0" prefWidth="225.0" promptText="Recipe ID" style="-fx-background-radius: 0px;" />
     <Label layoutX="375.0" layoutY="216.0" text="Recipe ID*">
