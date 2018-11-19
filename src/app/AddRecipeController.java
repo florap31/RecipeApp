@@ -59,15 +59,14 @@ public class AddRecipeController implements Initializable {
     // Selects total number of rows from recipes table in database
     final String GET_ROWS = "SELECT COUNT(*) FROM recipes";
 
-    try(Connection conn = DriverManager.getConnection(DATABASE_URL);
+    try (Connection conn = DriverManager.getConnection(DATABASE_URL);
     Statement stmt = conn.createStatement();
     ResultSet resultSet = stmt.executeQuery(GET_ROWS)) {
 
       // Retrieves number of rows in table so recipe id is set
       resultSet.next();
       recipe_id = resultSet.getInt(1) + 1;
-    }
-    catch (SQLException e) {
+    } catch (SQLException e) {
       status.setText("Error");
       e.printStackTrace();
     }
@@ -99,9 +98,9 @@ public class AddRecipeController implements Initializable {
         recipe_id + "," +
         "'" + recipeDirections + "'," +
         "'" + recipeIngredients + "'" + ")";
-    final String INSERT_CATEGORIES = "INSERT INTO CATEGORIES VALUES(" +
-        recipe_id + "," +
-        recipe_id + "," +
+    final String INSERT_CATEGORIES = "INSERT INTO CATEGORIES VALUES("
+        + "" + recipe_id + ","
+        + recipe_id + "," +
          getRegionString(recipeRegion) +
         "'" + recipeCourse + "'," +
         getStyleString(recipeStyle) +
@@ -109,12 +108,12 @@ public class AddRecipeController implements Initializable {
 
     try (Connection connection = DriverManager.getConnection(DATABASE_URL);
         Statement statement = connection.createStatement()) {
-      statement.executeUpdate(INSERT_RECIPES);
-      statement.executeUpdate(INSERT_INGREDIENTS);
-      statement.executeUpdate(INSERT_CATEGORIES);
-      status.setText("Success!");
+        statement.executeUpdate(INSERT_RECIPES);
+        statement.executeUpdate(INSERT_INGREDIENTS);
+        statement.executeUpdate(INSERT_CATEGORIES);
+        status.setText("Success!");
     }
-    catch(DerbySQLIntegrityConstraintViolationException y){
+    catch(DerbySQLIntegrityConstraintViolationException y) {
       status.setText("Recipe already exists");
     }
     catch (SQLException e) {
