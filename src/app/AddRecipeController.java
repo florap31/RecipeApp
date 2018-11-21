@@ -1,8 +1,6 @@
 package app;
-
-
-
 import java.io.File;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -172,7 +170,6 @@ public class AddRecipeController implements Initializable {
     filesList = new ArrayList<>();
     filesList.add("*.jpeg");
     filesList.add("*.jpg");
-
   }
 
   public void remRecipe(ActionEvent event) throws Exception {
