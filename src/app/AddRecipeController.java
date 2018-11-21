@@ -144,18 +144,18 @@ public class AddRecipeController implements Initializable {
     }
 
   }
-  // Methods if particular values are null or not and
+  // Methods checks if particular values are null or not and
   // returns string needed for SQL insert statement
   String getRegionString(String region) {
     if(!(region.isEmpty()))
       return "'" + region + "',";
-    return null;
+    return null+",";
   }
 
   String getStyleString(String style) {
     if(!(style.isEmpty()))
       return "'" + style + "',";
-    return null;
+    return null+",";
   }
 
   String getMainIngredientString(String MainIngredient) {
