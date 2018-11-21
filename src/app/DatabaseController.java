@@ -67,7 +67,7 @@ public class DatabaseController implements Initializable {
   private Label directions;
 
 
-  static final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
+  static final String DATABASE_URL = "jdbc:derby:lib/RecDatabase";
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {

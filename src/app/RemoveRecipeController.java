@@ -23,7 +23,7 @@ public class RemoveRecipeController {
   private TextField recipeID;
 
 
-  static final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
+  static final String DATABASE_URL = "jdbc:derby:lib/RecDatabase";
 
   public void remove_Recipe(ActionEvent event) throws Exception {
     try (Connection connection = DriverManager.getConnection(DATABASE_URL);

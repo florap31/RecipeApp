@@ -50,97 +50,16 @@ public class AddRecipeController implements Initializable {
   @FXML
   private Label filePath;
 
-  static final String DATABASE_URL = "jdbc:derby:/Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase";
+
+  static final String DATABASE_URL = "jdbc:derby:lib/RecDatabase";
   String imageUrl;
-
-  // Data from recipes database is retrieved
-  public void addRecipe(ActionEvent event) throws Exception {
-    int recipe_id = 0;
-    // Selects total number of rows from recipes table in database
-    final String GET_ROWS = "SELECT COUNT(*) FROM recipes";
-
-    try (Connection conn = DriverManager.getConnection(DATABASE_URL);
-    Statement stmt = conn.createStatement();
-    ResultSet resultSet = stmt.executeQuery(GET_ROWS)) {
-
-      // Retrieves number of rows in table so recipe id is set
-      resultSet.next();
-      recipe_id = resultSet.getInt(1) + 1;
-    } catch (SQLException e) {
-      status.setText("Error");
-      e.printStackTrace();
-    }
-    // assigns values to strings if certain values are entered
-    String recipeName = recipe.getText();
-    String recipeIngredients = ingredients.getText();
-    String recipeDirections = directions.getText();
-    String recipeCourse = course.getText();
-    String recipeRegion = region.getText();
-    String recipeStyle = style.getText();
-    String recipeMainIngredient = mainIngredient.getText();
-
-    // checks if necessary text fields are entered and if not, throws error message
-    if (recipeName.isEmpty() || recipeIngredients.isEmpty() || recipeDirections.isEmpty()
-        || recipeCourse.isEmpty()) {
-      status.setText("Please enter values for required fields.");
-      return;
-    }
-
-
-
-    // values are inserted into recipes table
-    final String INSERT_RECIPES = "INSERT INTO RECIPES VALUES(" +
-        recipe_id + "," +
-        "'" + recipeName + "'," +
-        "'" + imageUrl + "'" + ")";
-    final String INSERT_INGREDIENTS = "INSERT INTO INGREDIENTS VALUES(" +
-        recipe_id + "," +
-        recipe_id + "," +
-        "'" + recipeDirections + "'," +
-        "'" + recipeIngredients + "'" + ")";
-    final String INSERT_CATEGORIES = "INSERT INTO CATEGORIES VALUES("
-        + "" + recipe_id + ","
-        + recipe_id + "," +
-         getRegionString(recipeRegion) +
-        "'" + recipeCourse + "'," +
-        getStyleString(recipeStyle) +
-        getMainIngredientString(recipeMainIngredient) + ")";
-
-    try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-        Statement statement = connection.createStatement()) {
-        statement.executeUpdate(INSERT_RECIPES);
-        statement.executeUpdate(INSERT_INGREDIENTS);
-        statement.executeUpdate(INSERT_CATEGORIES);
-        status.setText("Success!");
-    }
-    catch(DerbySQLIntegrityConstraintViolationException y) {
-      status.setText("Recipe already exists");
-    }
-    catch (SQLException e) {
-      status.setText("Error");
-      e.printStackTrace();
-    }
-
-  }
-  // Methods if particular values are null or not and
-  // returns string needed for SQL insert statement
-  String getRegionString(String region) {
-  if(!(region.isEmpty()))
-      return "'" + region + "',";
-  return null;
-  }
-
-  String getStyleString(String style) {
-    if(!(style.isEmpty()))
-      return "'" + style + "',";
-    return null;
-  }
-
-  String getMainIngredientString(String MainIngredient) {
-    if(!(MainIngredient.isEmpty()))
-      return "'" + MainIngredient + "'";
-    return null;
-  }
+  String recipeName;
+  String recipeIngredients;
+  String recipeDirections;
+  String recipeCourse;
+  String recipeRegion;
+  String recipeStyle;
+  String recipeMainIngredient;
 
   public void imageChooser(ActionEvent event) throws Exception {
     // FileChooser object is created and extention filters are added
@@ -157,6 +76,95 @@ public class AddRecipeController implements Initializable {
     else
       filePath.setText("Please choose an image.");
   }
+
+  // Data from recipes database is retrieved
+  public void addRecipe(ActionEvent event) throws Exception {
+    int recipe_id = 0;
+    // Selects total number of rows from recipes table in database
+    final String GET_ROWS = "SELECT COUNT(*) FROM recipes";
+
+    try (Connection conn = DriverManager.getConnection(DATABASE_URL);
+        Statement stmt = conn.createStatement();
+        ResultSet resultSet = stmt.executeQuery(GET_ROWS)) {
+
+      // Retrieves number of rows in table so recipe id is set
+      resultSet.next();
+      recipe_id = resultSet.getInt(1) + 1;
+    } catch (SQLException e) {
+      status.setText("Error");
+      e.printStackTrace();
+    }
+    // assigns values to strings if certain values are entered
+    this.recipeName = recipe.getText();
+    this.recipeIngredients = ingredients.getText();
+    this.recipeDirections = directions.getText();
+    this.recipeCourse = course.getText();
+    this.recipeRegion = region.getText();
+    this.recipeStyle = style.getText();
+    this.recipeMainIngredient = mainIngredient.getText();
+
+    // checks if necessary text fields are entered and if not, throws error message
+    if (recipeName.isEmpty() || recipeIngredients.isEmpty() || recipeDirections.isEmpty()
+        || recipeCourse.isEmpty() || imageUrl == null) {
+      status.setText("Please enter values for required fields.");
+      return;
+    }
+
+    // values are inserted into recipes table
+     String INSERT_RECIPES = "INSERT INTO RECIPES VALUES(" +
+        recipe_id + "," +
+        "'" + recipeName + "'," +
+        "'" + imageUrl + "'" + ")";
+     String INSERT_INGREDIENTS = "INSERT INTO INGREDIENTS VALUES(" +
+        recipe_id + "," +
+        recipe_id + "," +
+        "'" + recipeDirections + "'," +
+        "'" + recipeIngredients + "'" + ")";
+     String INSERT_CATEGORIES = "INSERT INTO CATEGORIES VALUES("
+        + "" + recipe_id + ","
+        + recipe_id + "," +
+        getRegionString(recipeRegion) +
+        "'" + recipeCourse + "'," +
+        getStyleString(recipeStyle) +
+        getMainIngredientString(recipeMainIngredient) + ")";
+
+    try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+        Statement statement = connection.createStatement()) {
+      statement.executeUpdate(INSERT_RECIPES);
+      statement.executeUpdate(INSERT_INGREDIENTS);
+      statement.executeUpdate(INSERT_CATEGORIES);
+      status.setText("Success!");
+    }
+    catch(DerbySQLIntegrityConstraintViolationException y) {
+      status.setText("Recipe already exists");
+    }
+    catch (SQLException e) {
+      status.setText("Error");
+      e.printStackTrace();
+    }
+
+  }
+  // Methods if particular values are null or not and
+  // returns string needed for SQL insert statement
+  String getRegionString(String region) {
+    if(!(region.isEmpty()))
+      return "'" + region + "',";
+    return null;
+  }
+
+  String getStyleString(String style) {
+    if(!(style.isEmpty()))
+      return "'" + style + "',";
+    return null;
+  }
+
+  String getMainIngredientString(String MainIngredient) {
+    if(!(MainIngredient.isEmpty()))
+      return "'" + MainIngredient + "'";
+    return null;
+  }
+
+
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
