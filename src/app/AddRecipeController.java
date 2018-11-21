@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -32,9 +33,9 @@ public class AddRecipeController implements Initializable {
   @FXML
   private TextField recipe;
   @FXML
-  private TextField ingredients;
+  private TextArea ingredients;
   @FXML
-  private TextField directions;
+  private TextArea directions;
   @FXML
   private TextField course;
   @FXML

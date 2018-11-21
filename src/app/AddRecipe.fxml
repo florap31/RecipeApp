@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -59,18 +60,16 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="251.0" layoutY="159.0" text="Ingredients*">
+      <Label layoutX="251.0" layoutY="153.0" text="Ingredients*">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="directions" alignment="TOP_LEFT" layoutX="250.0" layoutY="366.0" prefHeight="123.0" prefWidth="225.0" promptText="Directions" style="-fx-background-radius: 0px;" />
-      <Label layoutX="250.0" layoutY="328.0" text="Directions*">
+      <Label layoutX="250.0" layoutY="325.0" text="Directions*">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="ingredients" alignment="TOP_LEFT" layoutX="250.0" layoutY="198.0" prefHeight="123.0" prefWidth="225.0" promptText="Ingredients" style="-fx-background-radius: 0px;" />
       <TextField fx:id="course" layoutX="511.0" layoutY="121.0" prefHeight="17.0" prefWidth="225.0" promptText="Course name" style="-fx-background-radius: 0px;" />
       <Label layoutX="511.0" layoutY="82.0" text="Course name*">
          <font>
@@ -140,5 +139,7 @@
             <Font size="10.0" />
          </font>
       </Label>
+      <TextArea fx:id="ingredients" layoutX="250.0" layoutY="191.0" prefHeight="132.0" prefWidth="228.0" promptText="Ingredients" />
+      <TextArea fx:id="directions" layoutX="250.0" layoutY="359.0" prefHeight="132.0" prefWidth="228.0" promptText="Directions" />
   </children>
 </AnchorPane>
