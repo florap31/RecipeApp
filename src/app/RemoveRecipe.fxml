@@ -22,7 +22,7 @@
         </Label>
         <Button layoutX="1.0" layoutY="76.0" mnemonicParsing="false" onAction="#dash" prefHeight="45.0" prefWidth="224.0" style="-fx-background-radius: 0px;" stylesheets="@Style.css" text="Dashboard" textFill="#464646">
           <font>
-            <Font name="Avenir Next Regular" size="21.0" />
+            <Font name="Avenir Roman" size="21.0" />
           </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -30,7 +30,7 @@
         </Button>
         <Button layoutX="1.0" layoutY="122.0" mnemonicParsing="false" onAction="#database" prefHeight="45.0" prefWidth="224.0" style="-fx-background-radius: 0px;" stylesheets="@Style.css" text="Recipe database" textFill="#464646">
           <font>
-            <Font name="Avenir Next Regular" size="21.0" />
+            <Font name="Avenir Roman" size="21.0" />
           </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -46,7 +46,7 @@
         </Button>
             <Button layoutY="213.0" mnemonicParsing="false" onAction="#database" prefHeight="45.0" prefWidth="224.0" style="-fx-background-radius: 0px; -fx-background-color: #40A853;" stylesheets="@Style.css" text="Remove Recipe" textFill="WHITE">
                <font>
-                  <Font name="Avenir Next Regular" size="21.0" />
+                  <Font name="Avenir Roman" size="21.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />

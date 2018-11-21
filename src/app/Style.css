@@ -30,10 +30,6 @@
   -fx-text-fill: white;
 }
 
-.table-view .filler{
-  -fx-background-color: #40a853;
-}
-
 .table-view .column-header{
   -fx-background-color: #40a853;
 }
@@ -46,9 +42,13 @@
  -fx-background-color: white;
 }
 
+.table-view .filler{
+  -fx-background-color: white;
+}
+
 .table-view > .virtual-flow > .scroll-bar:vertical > .thumb{
 
-  -fx-background-color:  #e8e8e8;
+  -fx-background-color:  #40a853;
   -fx-background-radius: 0px;
   -fx-background-insets: 0, 0, 0;
 
