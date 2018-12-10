@@ -26,6 +26,8 @@ public class RemoveRecipeController {
   static final String DATABASE_URL = "jdbc:derby:lib/RecDatabase";
 
   public void remove_Recipe(ActionEvent event) throws Exception {
+    // Driver manager establishes connection with JDBC url
+    // Components needed: connection class, driver manager class, and JDBC url
     try (Connection connection = DriverManager.getConnection(DATABASE_URL);
         Statement statement = connection.createStatement()) {
     // checks if necessary text field is entered and if not, throws error message

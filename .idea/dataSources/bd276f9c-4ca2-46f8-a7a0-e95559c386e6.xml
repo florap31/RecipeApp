@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="RecDatabase">
+  <database-model serializer="dbm" rdbms="DERBY" format-version="4.11">
+    <root id="1">
+      <ServerVersion>10.14</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="NULLID"/>
+    <schema id="4" parent="1" name="SQLJ"/>
+    <schema id="5" parent="1" name="SYS"/>
+    <schema id="6" parent="1" name="SYSCAT"/>
+    <schema id="7" parent="1" name="SYSCS_DIAG"/>
+    <schema id="8" parent="1" name="SYSCS_UTIL"/>
+    <schema id="9" parent="1" name="SYSFUN"/>
+    <schema id="10" parent="1" name="SYSIBM"/>
+    <schema id="11" parent="1" name="SYSPROC"/>
+    <schema id="12" parent="1" name="SYSSTAT"/>
+    <table id="13" parent="2" name="CATEGORIES"/>
+    <table id="14" parent="2" name="INGREDIENTS"/>
+    <table id="15" parent="2" name="RECIPES"/>
+    <column id="16" parent="13" name="CATEGORY_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="13" name="RECIPE_ID">
+      <Position>2</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="13" name="NATIONALITY">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="19" parent="13" name="COURSE">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="13" name="COOKINGSTYLE">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="21" parent="13" name="MAININGREDIENT">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="22" parent="13" name="SQL181118124501520">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CATEGORY_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="23" parent="13" name="SQL181118124501521">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RECIPE_ID</ColNames>
+    </index>
+    <key id="24" parent="13" name="SQL181118124501520">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CATEGORY_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="13" name="SQL181118124501521">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RECIPE_ID</ColNames>
+      <RefSchemaName>APP</RefSchemaName>
+      <RefTableName>RECIPES</RefTableName>
+      <RefKeyName>SQL181118124501430</RefKeyName>
+      <RefColNames>RECIPE_ID</RefColNames>
+    </foreign-key>
+    <column id="26" parent="14" name="INGREDIENT_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="14" name="RECIPE_ID">
+      <Position>2</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="14" name="DIRECTIONS">
+      <Position>3</Position>
+      <DataType>VARCHAR(2000)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="14" name="INGREDIENTS">
+      <Position>4</Position>
+      <DataType>VARCHAR(1000)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="30" parent="14" name="SQL181118124501480">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>INGREDIENT_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="31" parent="14" name="SQL181118124501481">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RECIPE_ID</ColNames>
+    </index>
+    <key id="32" parent="14" name="SQL181118124501480">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>INGREDIENT_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="14" name="SQL181118124501481">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RECIPE_ID</ColNames>
+      <RefSchemaName>APP</RefSchemaName>
+      <RefTableName>RECIPES</RefTableName>
+      <RefKeyName>SQL181118124501430</RefKeyName>
+      <RefColNames>RECIPE_ID</RefColNames>
+    </foreign-key>
+    <column id="34" parent="15" name="RECIPE_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="15" name="DISH">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="15" name="IMAGEURL">
+      <Position>3</Position>
+      <DataType>VARCHAR(512)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="37" parent="15" name="SQL181118124501430">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RECIPE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="15" name="SQL181118124501430">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RECIPE_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

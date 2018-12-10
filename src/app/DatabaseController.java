@@ -84,6 +84,8 @@ public class DatabaseController implements Initializable {
         + " FROM recipes INNER JOIN "
         + "categories ON categories.recipe_id=recipes.recipe_id";
 
+    // Driver manager establishes connection with JDBC url
+    // Components needed: connection class, driver manager class, and JDBC url
     try (Connection connection = DriverManager.getConnection(DATABASE_URL);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_RECIPES)) {

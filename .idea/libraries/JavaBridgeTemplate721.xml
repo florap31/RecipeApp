@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="JavaBridgeTemplate721">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/JavaBridgeTemplate721.war!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$USER_HOME$/Downloads/JavaBridgeTemplate721.war!/" recursive="false" />
+  </library>
+</component>

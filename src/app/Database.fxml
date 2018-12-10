@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="639.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.DatabaseController">
+<AnchorPane fx:id="rootPane" prefHeight="639.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.DatabaseController">
   <children>
     <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="639.0" prefWidth="225.0" style="-fx-background-color: #CFCFCF;">
       <children>
@@ -26,6 +26,9 @@
           <font>
             <Font name="Avenir Roman" size="21.0" />
           </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
         </Button>
         <Button layoutX="1.0" layoutY="122.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="224.0" style="-fx-background-radius: 0px; -fx-background-color: #40A853;" stylesheets="@Style.css" text="Recipe database" textFill="WHITE">
           <font>

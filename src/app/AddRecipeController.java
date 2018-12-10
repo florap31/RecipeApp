@@ -1,6 +1,6 @@
 package app;
-import java.io.File;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,6 +26,9 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import org.apache.derby.shared.common.error.DerbySQLIntegrityConstraintViolationException;
 
+/**
+ *
+ */
 public class AddRecipeController implements Initializable {
 
   List<String> filesList;
@@ -60,6 +63,11 @@ public class AddRecipeController implements Initializable {
   String recipeStyle;
   String recipeMainIngredient;
 
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void imageChooser(ActionEvent event) throws Exception {
     // FileChooser object is created and extention filters are added
     FileChooser fileChooser = new FileChooser();
@@ -68,27 +76,34 @@ public class AddRecipeController implements Initializable {
     File file = fileChooser.showOpenDialog(null);
     // Path of chosen file is set to imageUrl string
 
-    if(file != null){
+    if (file != null) {
       filePath.setText("Selected image:" + file.getAbsolutePath());
       this.imageUrl = file.getAbsolutePath();
-    }
-    else
+    } else {
       filePath.setText("Please choose an image.");
+    }
   }
 
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   // Data from recipes database is retrieved
   public void addRecipe(ActionEvent event) throws Exception {
-    int recipe_id = 0;
+    int recipeId = 0;
     // Selects total number of rows from recipes table in database
     final String GET_ROWS = "SELECT COUNT(*) FROM recipes";
 
+    // Driver manager establishes connection with JDBC url
+    // Components needed: connection class, driver manager class, and JDBC url
     try (Connection conn = DriverManager.getConnection(DATABASE_URL);
         Statement stmt = conn.createStatement();
         ResultSet resultSet = stmt.executeQuery(GET_ROWS)) {
 
       // Retrieves number of rows in table so recipe id is set
       resultSet.next();
-      recipe_id = resultSet.getInt(1) + 1;
+      recipeId = resultSet.getInt(1) + 1;
     } catch (SQLException e) {
       status.setText("Error");
       e.printStackTrace();
@@ -110,22 +125,22 @@ public class AddRecipeController implements Initializable {
     }
 
     // values are inserted into recipes table
-     String INSERT_RECIPES = "INSERT INTO RECIPES VALUES(" +
-        recipe_id + "," +
+    String INSERT_RECIPES = String.format("INSERT INTO RECIPES VALUES("
+        + recipeId + "," +
         "'" + recipeName + "'," +
-        "'" + imageUrl + "'" + ")";
-     String INSERT_INGREDIENTS = "INSERT INTO INGREDIENTS VALUES(" +
-        recipe_id + "," +
-        recipe_id + "," +
+        "'" + imageUrl + "'" + ")");
+    String INSERT_INGREDIENTS = String.format("INSERT INTO INGREDIENTS VALUES(" +
+        recipeId + "," +
+        recipeId + "," +
         "'" + recipeDirections + "'," +
-        "'" + recipeIngredients + "'" + ")";
-     String INSERT_CATEGORIES = "INSERT INTO CATEGORIES VALUES("
-        + "" + recipe_id + ","
-        + recipe_id + "," +
+        "'" + recipeIngredients + "'" + ")");
+    String INSERT_CATEGORIES = String.format("INSERT INTO CATEGORIES VALUES("
+        + "" + recipeId + ","
+        + recipeId + "," +
         getRegionString(recipeRegion) +
         "'" + recipeCourse + "'," +
         getStyleString(recipeStyle) +
-        getMainIngredientString(recipeMainIngredient) + ")";
+        getMainIngredientString(recipeMainIngredient) + ")");
 
     try (Connection connection = DriverManager.getConnection(DATABASE_URL);
         Statement statement = connection.createStatement()) {
@@ -133,36 +148,37 @@ public class AddRecipeController implements Initializable {
       statement.executeUpdate(INSERT_INGREDIENTS);
       statement.executeUpdate(INSERT_CATEGORIES);
       status.setText("Success!");
-    }
-    catch(DerbySQLIntegrityConstraintViolationException y) {
+    } catch (DerbySQLIntegrityConstraintViolationException y) {
       status.setText("Recipe already exists");
-    }
-    catch (SQLException e) {
+    } catch (SQLException e) {
       status.setText("Error");
       e.printStackTrace();
     }
 
   }
+
   // Methods checks if particular values are null or not and
   // returns string needed for SQL insert statement
   String getRegionString(String region) {
-    if(!(region.isEmpty()))
+    if (!(region.isEmpty())) {
       return "'" + region + "',";
-    return null+",";
+    }
+    return null + ",";
   }
 
   String getStyleString(String style) {
-    if(!(style.isEmpty()))
+    if (!(style.isEmpty())) {
       return "'" + style + "',";
-    return null+",";
+    }
+    return null + ",";
   }
 
   String getMainIngredientString(String MainIngredient) {
-    if(!(MainIngredient.isEmpty()))
+    if (!(MainIngredient.isEmpty())) {
       return "'" + MainIngredient + "'";
+    }
     return null;
   }
-
 
 
   @Override
@@ -173,8 +189,12 @@ public class AddRecipeController implements Initializable {
     filesList.add("*.jpg");
   }
 
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void remRecipe(ActionEvent event) throws Exception {
-
     Parent remRecipe = FXMLLoader.load(getClass().getResource("RemoveRecipe.fxml"));
     Scene RemRecipe = new Scene(remRecipe);
 
@@ -184,6 +204,11 @@ public class AddRecipeController implements Initializable {
 
   }
 
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void database(ActionEvent event) throws Exception {
 
     Parent Database = FXMLLoader.load(getClass().getResource("Database.fxml"));
@@ -194,6 +219,12 @@ public class AddRecipeController implements Initializable {
     window.show();
 
   }
+
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void dash(ActionEvent event) throws Exception {
 
     Parent Dash = FXMLLoader.load(getClass().getResource("Dash.fxml"));

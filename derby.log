@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Thu Nov 22 11:15:36 EST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-3c34-8eba-00000619b648 
+Mon Dec 10 00:26:58 EST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-9695-2e82-000007b8c280 
 on database directory /Users/florapierre/IdeaProjects/RecipeApp/lib/RecDatabase with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/Users/florapierre/IdeaProjects/RecipeApp/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -8,6 +8,6 @@ java.runtime.version=1.8.0_131-b11
 user.dir=/Users/florapierre/IdeaProjects/RecipeApp
 os.name=Mac OS X
 os.arch=x86_64
-os.version=10.14
+os.version=10.14.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
