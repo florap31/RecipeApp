@@ -15,3 +15,5 @@ I tried to make all of the user functionalities clear and to the point, so the t
 
 # Database diagram:
 ![alt text](DatabaseDiagram.png)
+![alt text](gif.gif)
+![alt text](gif2.gif)
